@@ -1,0 +1,43 @@
+services:
+  vote:
+    image: acm:5000/examplevotingapp_vote:v1
+    ports:
+      - {{VOTE_PORT}}
+    networks:
+      - front-tier
+      - back-tier
+
+  result:
+    image: acm:5000/examplevotingapp_result:v1
+    ports:
+      - {{RESULT_PORT}}
+    networks:
+      - front-tier
+      - back-tier
+
+  worker:
+    image: acm:5000/examplevotingapp_worker:v1
+    networks:
+      - back-tier
+
+  redis:
+    image: redis:alpine
+    networks:
+      - back-tier
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: {{POSTGRES_USER}}
+      POSTGRES_PASSWORD: {{POSTGRES_PASSWORD}}
+    volumes:
+      - "database:/var/lib/postgresql/data"
+    networks:
+      - back-tier
+
+volumes:
+  database:
+
+networks:
+  front-tier:
+  back-tier:
