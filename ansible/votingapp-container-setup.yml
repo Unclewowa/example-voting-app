@@ -28,7 +28,7 @@
 
     - name: Remove all unused and dangling docker images
       shell:
-        cmd: docker system prune --filter "until=5m" --force
+        cmd: docker system prune --force
       tags:
         - docker-cleanup
         
