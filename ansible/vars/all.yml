@@ -1,7 +1,7 @@
 POSTGRES_USER: "postgres"
 POSTGRES_PASSWORD: "postgres"
 DOCKER_REGISTRY_HOST: "jenkins:5000"
-DOCKER_IMAGE_VERSION: "V1"
+DOCKER_IMAGE_VERSION: "v1"
 DOCKER_IMAGE_VOTE: "examplevotingapp_vote"
 DOCKER_IMAGE_RESULT: "examplevotingapp_result"
 DOCKER_IMAGE_WORKER: "examplevotingapp_worker"
