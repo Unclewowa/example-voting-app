@@ -34,7 +34,7 @@
         
     - name: Remove all docker network
       shell:
-        cmd: docker network prune
+        cmd: docker network prune --force
       tags:
         - docker-cleanup
 
